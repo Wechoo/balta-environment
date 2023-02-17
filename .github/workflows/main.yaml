@@ -1,0 +1,39 @@
+---
+name: Running
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+    environment: 
+      name: development
+      url: development.example
+
+    steps:
+      - name: Development
+        run: echo {{ vars.key }}
+  
+  stg:
+    needs: dev
+    runs-on: ubuntu-latest
+    environment: 
+      name: staging
+      url: staging.example
+
+    steps:
+      - name: Staging
+        run: echo {{ vars.key }}
+  
+  prd:
+    needs: stg
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+      url: production.example
+
+    steps:
+      - name: Production
+        run: echo {{ vars.key }}
