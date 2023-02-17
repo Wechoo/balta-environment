@@ -14,8 +14,8 @@ jobs:
 
     steps:
       - name: Development
-        run: echo {{ vars.key }}
-  
+        run: echo ${{ vars.key }}
+
   stg:
     needs: dev
     runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Staging
-        run: echo {{ vars.key }}
+        run: echo ${{ vars.key }}
   
   prd:
     needs: stg
@@ -36,5 +36,4 @@ jobs:
 
     steps:
       - name: Production
-        run: echo {{ vars.key }}
-        
+        run: echo ${{ vars.key }}
