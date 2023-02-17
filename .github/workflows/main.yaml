@@ -10,30 +10,30 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: development
-      url: development.example
+      url: http://development.example
 
     steps:
       - name: Development
-        run: echo {{ vars.key }}
-  
+        run: echo ${{ vars.key }}
+
   stg:
     needs: dev
     runs-on: ubuntu-latest
     environment: 
       name: staging
-      url: staging.example
+      url: http://staging.example
 
     steps:
       - name: Staging
-        run: echo {{ vars.key }}
+        run: echo ${{ vars.key }}
   
   prd:
     needs: stg
     runs-on: ubuntu-latest
     environment: 
       name: production
-      url: production.example
+      url: http://production.example
 
     steps:
       - name: Production
-        run: echo {{ vars.key }}
+        run: echo ${{ vars.key }}
