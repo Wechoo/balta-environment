@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: development
-      url: development.example
+      url: http://development.example
 
     steps:
       - name: Development
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: staging
-      url: staging.example
+      url: http://staging.example
 
     steps:
       - name: Staging
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: production
-      url: production.example
+      url: http://production.example
 
     steps:
       - name: Production
